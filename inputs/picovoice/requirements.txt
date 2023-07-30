@@ -1,0 +1,5 @@
+pvporcupine==2.2.1
+pvrecorder==1.1.0
+pvrhino==2.2.1
+paho-mqtt==1.6.1
+jproperties==2.1.1
