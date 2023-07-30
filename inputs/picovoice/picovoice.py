@@ -10,25 +10,30 @@ configs = Properties()
 with open('picovoice.properties', 'rb') as config_file:
     configs.load(config_file)
 
-access_key = configs.get("PV_ACCESS_KEY")
-base_dir = configs.get("PV_BASEDIR")
-porcupine_keyword_paths = [base_dir +
-                           configs.get("PV_PORCUPINE_KEYWORD_PATHS")]
-porcupine_model_path = base_dir + configs.get("PV_PORCUPINE_MODEL_PATH")
-rhino_model_path = base_dir + configs.get("PV_RHINO_MODEL_PATH")
-rhino_context_path = base_dir + configs.get("PV_RHINO_CONTEXT_PATH")
-mqtt_broker_host = configs.get("MQTT_BROKER_HOST")
-mqtt_broker_port = configs.get("MQTT_BROKER_PORT")
+access_key = configs.get("PV_ACCESS_KEY").data
+base_dir = configs.get("PV_BASEDIR").data
+porcupine_keyword_path = "".join(
+    [base_dir, "/", configs.get("PV_PORCUPINE_KEYWORD_PATHS").data])
+porcupine_keyword_paths = list()
+porcupine_keyword_paths.append(porcupine_keyword_path)
+porcupine_model_path = "".join(
+    [base_dir, "/", configs.get("PV_PORCUPINE_MODEL_PATH").data])
+rhino_model_path = "".join(
+    [base_dir, "/", configs.get("PV_RHINO_MODEL_PATH").data])
+rhino_context_path = "".join(
+    [base_dir, "/", configs.get("PV_RHINO_CONTEXT_PATH").data])
+mqtt_broker_host = configs.get("MQTT_BROKER_HOST").data
+mqtt_broker_port = int(configs.get("MQTT_BROKER_PORT").data)
 
 porcupine = pvporcupine.create(
     access_key=access_key,
-    porcupine_keyword_paths=porcupine_keyword_paths,
+    keyword_paths=porcupine_keyword_paths,
     model_path=porcupine_model_path
 )
 
 rhino = pvrhino.create(
     access_key=access_key,
-    rhino_context_path=rhino_context_path,
+    context_path=rhino_context_path,
     model_path=rhino_model_path
 )
 
