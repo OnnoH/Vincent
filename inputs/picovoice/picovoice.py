@@ -50,7 +50,7 @@ def on_publish(client, userdata, mid):
     print("sent a message")
 
 
-mqttClient = mqtt.Client("Vincent")
+mqttClient = mqtt.Client("Vincent_Producer")
 mqttClient.on_publish = on_publish
 mqttClient.connect(mqtt_broker_host, mqtt_broker_port)
 mqttClient.loop_start()
