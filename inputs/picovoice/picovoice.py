@@ -47,8 +47,8 @@ for x in porcupine_keyword_paths:
         keywords.append(keyword_phrase_part[0])
 
 
-def on_publish(client, userdata, msg):
-    print(json.loads(msg))
+def on_publish(client, userdata, mid):
+    print("Message sent : " + str(mid))
 
 
 mqttClient = mqtt.Client("Vincent_Producer")
@@ -80,16 +80,16 @@ try:
         if is_finalised:
             inference = rhino.get_inference()
             if inference.is_understood:
-                for slot, value in inference.slots.items():
-                    print("    %s : %s" % (slot, value))
-                topic = keywords[result] + "/" + \
-                    inference.intent
+                topic = keywords[result] + "/" + inference.intent
                 message = json.dumps(inference.slots)
                 info = mqttClient.publish(
                     topic=topic,
                     payload=message,
                     qos=0
                 )
+                print("Sent ")
+                print(json.loads(message))
+                print(" to " + topic)
                 info.wait_for_publish()
 except KeyboardInterrupt:
     print("Stopping...")

@@ -57,10 +57,10 @@ Then it turns into a loop, waiting for the wake word followed by an intent. Once
 E.g.
 |Topic|Payload Example|
 |---|----|
-|`/Vincent/Movement`|`{ direction: links, number: 50 }`|
-|`/Vincent/Object`|`{ object: huis }`|
-|`/Vincent/PenState`|`{ penstate: aan }`|
-|`/Vincent/Colour`|`{ colour: rood }`|
+|`/Vincent/Movement`|`{ 'direction': 'links', 'number': '50' }`|
+|`/Vincent/Object`|`{ 'object': 'huis' }`|
+|`/Vincent/PenState`|`{ 'penstate': 'aan' }`|
+|`/Vincent/Colour`|`{ 'colour': 'rood' }`|
 |||
 
 The slots contain the variables (keywords) used in the intents expression(s), e.g. `teken $Object:object` or `(ga) $Movement:direction`. PicoVoice also
