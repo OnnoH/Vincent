@@ -1,5 +1,6 @@
 import turtle
 import random
+import json
 import paho.mqtt.client as mqtt
 from jproperties import Properties
 
@@ -102,7 +103,7 @@ def on_message_object(client, userdata, msg):
                 stars()
 
 
-def on_message_colour(client, userdate, msg):
+def on_message_colour(client, userdata, msg):
     print(str(msg.payload.decode('utf-8')))
     colour = str(msg.payload.decode('utf-8'))
     match colour:
@@ -120,7 +121,7 @@ def on_message_colour(client, userdate, msg):
             t.fillcolor("green")
 
 
-def on_message_penstate(client, userdate, msg):
+def on_message_penstate(client, userdata, msg):
     print(str(msg.payload.decode('utf-8')))
     penstate = str(msg.payload.decode('utf-8'))
     match penstate:
@@ -131,10 +132,10 @@ def on_message_penstate(client, userdate, msg):
 
 
 client = mqtt.Client("Vincent_Consumer")
-client.message_callback_add("Vincent/Movement/direction", on_message_direction)
-client.message_callback_add("Vincent/Object/object", on_message_object)
-client.message_callback_add("Vincent/Colour/colour", on_message_colour)
-client.message_callback_add("Vincent/PenState/penstate", on_message_penstate)
+client.message_callback_add("Vincent/Movement", on_message_direction)
+client.message_callback_add("Vincent/Object", on_message_object)
+client.message_callback_add("Vincent/Colour", on_message_colour)
+client.message_callback_add("Vincent/PenState", on_message_penstate)
 client.connect(mqtt_broker_host, mqtt_broker_port)
 client.subscribe("Vincent/#")
 client.loop_forever()
