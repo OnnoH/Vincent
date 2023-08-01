@@ -1,4 +1,5 @@
 import os
+import json
 import pvporcupine
 import pvrhino
 import paho.mqtt.client as mqtt
@@ -46,8 +47,8 @@ for x in porcupine_keyword_paths:
         keywords.append(keyword_phrase_part[0])
 
 
-def on_publish(client, userdata, mid):
-    print("sent a message")
+def on_publish(client, userdata, msg):
+    print(json.loads(msg))
 
 
 mqttClient = mqtt.Client("Vincent_Producer")
@@ -67,30 +68,29 @@ recorder.start()
 print('Listening ... (press Ctrl+C to exit)')
 awake = False
 try:
-    while True:
+    while not (awake):
         wake = recorder.read()
         result = porcupine.process(wake)
         if result >= 0:
             print('[%s] Detected %s' % (str(datetime.now()), keywords[result]))
             awake = True
-        if awake:
-            is_finalised = rhino.process(wake)
-            if is_finalised:
-                inference = rhino.get_inference()
-                if inference.is_understood:
-                    for slot, value in inference.slots.items():
-                        print("    %s : %s" % (slot, value))
-                    topic = keywords[result] + "/" + \
-                        inference.intent + "/" + slot
-                    message = value.encode("utf-8")
-                    info = mqttClient.publish(
-                        topic=topic,
-                        payload=message,
-                        qos=0
-                    )
-                    info.wait_for_publish()
-                    print(info.is_published())
-                awake = False
+    while (awake):
+        cmd = recorder.read()
+        is_finalised = rhino.process(cmd)
+        if is_finalised:
+            inference = rhino.get_inference()
+            if inference.is_understood:
+                for slot, value in inference.slots.items():
+                    print("    %s : %s" % (slot, value))
+                topic = keywords[result] + "/" + \
+                    inference.intent
+                message = json.dumps(inference.slots)
+                info = mqttClient.publish(
+                    topic=topic,
+                    payload=message,
+                    qos=0
+                )
+                info.wait_for_publish()
 except KeyboardInterrupt:
     print("Stopping...")
 finally:

@@ -6,6 +6,14 @@ https://console.picovoice.ai
 
 Upon creation, an AccessKey will be generated and this will allow use of the PicoVoice SDK's.
 
+## Setup
+
+```shell
+pip install -r requirements.txt
+```
+
+This will install the libraries needed for running the voice control script.
+
 ## Wake Word
 
 In order to have Vincent react to its own name, a wake word must be learned. PicoVoice has the Porcupine SDK for that.
