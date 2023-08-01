@@ -11,3 +11,16 @@ Inspired by the surroundings in the [Central Library](https://www.google.com/map
 ## Brainstorm
 
 We used this [Miro Board](https://miro.com/app/board/uXjVM0f28dc=/?share_link_id=773981393038) to share ideas/links/doubts etc.
+
+## Links
+
+Some inspirational links were shared on Slack as well.
+
+- [The Best Arduino Projects](https://howtomechatronics.com/arduino-projects/)
+- [DIY Pen Plotter with Tool Changer](https://www.youtube.com/watch?v=virDtVVt2Xo) (YouTube)
+- [LEGO Education](https://twitter.com/LEGO_Education/status/1466437337056002051) (Twitter/X)
+- [The Incredible Machine](https://www.myabandonware.com/game/the-incredible-machine-1mg/play-1mg) (Game Emulation)
+- [BeachBot](https://www.tudelft.nl/en/2020/3me/september/beach-robot-on-the-move-during-world-cleanup-day) & [video](https://www.youtube.com/watch?v=zQjXDSxy01M)
+- [Solar Powered Boat](https://twitter.com/arduino/status/1679821938716205057)
+- [Cleaning Marine Drones](https://www.nauticexpo.com/prod/oceanalpha/product-65687-568374.html)
+- [Ascento/Formant Robot Fleets](https://www.linkedin.com/posts/formantinc_deploy-scale-and-manage-fleets-with-formant-ugcPost-7043991030597115904-EDAg)
