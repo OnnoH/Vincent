@@ -55,15 +55,16 @@ The example `picovoice.py` reads the properties from the `picovoice.properties` 
 Then it turns into a loop, waiting for the wake word followed by an intent. Once it recognises both, a message is send. The topic depends on the keyword, intent and slot. The value (payload) comes from the expression.
 
 E.g.
-|Topic|Payload|
+|Topic|Payload Example|
 |---|----|
-|`/Vincent/Movement/direction`|`links`|
-|`/Vincent/Object/object`|`huis`|
-|`/Vincent/PenState/penstate`|`aan`|
-|`/Vincent/Colour/colour`|`rood`|
+|`/Vincent/Movement`|`{ direction: links, number: 50 }`|
+|`/Vincent/Object`|`{ object: huis }`|
+|`/Vincent/PenState`|`{ penstate: aan }`|
+|`/Vincent/Colour`|`{ colour: rood }`|
 |||
 
-In this case the name of the intent matches the slot. The slots contain the variables (keywords) used in the intents expression(s), e.g. `teken $Object:object` or `(ga) $Movement:direction`.
+The slots contain the variables (keywords) used in the intents expression(s), e.g. `teken $Object:object` or `(ga) $Movement:direction`. PicoVoice also
+has some predefined words like numbers which can be accessed via `$pv.` e.g. `$pv.TwoDigitInteger:number`.
 
 ## Properties
 
