@@ -26,18 +26,19 @@ def stars():
 
 
 def on_message_direction(client, userdata, msg):
-    print(str(msg.payload.decode('utf-8')))
-    direction = str(msg.payload.decode('utf-8'))
+    payload = json.loads(msg.payload)
+    direction = payload["direction"]
+    number = int(payload["number"])
     match direction:
         case "links":
-            t.left(90)
+            t.left(number)
         case "rechts":
-            t.right(90)
-        case "op":
-            t.forward(10)
-        case "neer":
-            t.backward(10)
-        case "stop":
+            t.right(number)
+        case "voor":
+            t.forward(number)
+        case "terug":
+            t.backward(number)
+        case "opnieuw":
             t.clear()
             t.reset()
             t.shape("turtle")
@@ -49,8 +50,8 @@ def on_message_direction(client, userdata, msg):
 
 
 def on_message_object(client, userdata, msg):
-    print(str(msg.payload.decode('utf-8')))
-    object = str(msg.payload.decode('utf-8'))
+    payload = json.loads(msg.payload)
+    object = payload["object"]
     match object:
         case "huis":
             t.forward(100)
@@ -82,6 +83,7 @@ def on_message_object(client, userdata, msg):
             t.begin_fill()
             t.circle(200)
             t.end_fill()
+            t.hideturtle()
         case "sterrenhemel":
             s.bgcolor("black")
             t.color("white")
@@ -104,8 +106,8 @@ def on_message_object(client, userdata, msg):
 
 
 def on_message_colour(client, userdata, msg):
-    print(str(msg.payload.decode('utf-8')))
-    colour = str(msg.payload.decode('utf-8'))
+    payload = json.loads(msg.payload)
+    colour = payload["colour"]
     match colour:
         case "blauw":
             t.pencolor("blue")
@@ -122,8 +124,8 @@ def on_message_colour(client, userdata, msg):
 
 
 def on_message_penstate(client, userdata, msg):
-    print(str(msg.payload.decode('utf-8')))
-    penstate = str(msg.payload.decode('utf-8'))
+    payload = json.loads(msg.payload)
+    penstate = payload["penstate"]
     match penstate:
         case "aan":
             t.pendown()
