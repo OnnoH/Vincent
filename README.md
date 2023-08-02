@@ -24,3 +24,10 @@ Some inspirational links were shared on Slack as well.
 - [Solar Powered Boat](https://twitter.com/arduino/status/1679821938716205057)
 - [Cleaning Marine Drones](https://www.nauticexpo.com/prod/oceanalpha/product-65687-568374.html)
 - [Ascento/Formant Robot Fleets](https://www.linkedin.com/posts/formantinc_deploy-scale-and-manage-fleets-with-formant-ugcPost-7043991030597115904-EDAg)
+- [Fraunhofer EvoBOT](https://www.iml.fraunhofer.de/en/fields_of_activity/material-flow-systems/iot-and-embedded-systems/evobot.html)
+- [InMoov Life-size Robot](https://inmoov.fr/)
+
+## Robotics
+
+- [The Robotics Backend](https://roboticsbackend.com)
+- [Robot Operating System](http://docs.ros.org) (not secure)
