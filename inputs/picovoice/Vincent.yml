@@ -1,0 +1,39 @@
+context:
+  expressions:
+    Movement:
+      - (ga) $Movement:direction $pv.TwoDigitInteger:number
+    Colour:
+      - $Colour:colour
+    PenState:
+      - (pen) $PenState:penstate
+    Object:
+      - teken $Object:object
+  slots:
+    Movement:
+      - opnieuw
+      - terug
+      - voor
+      - rechts
+      - links
+    Colour:
+      - roze
+      - oranje
+      - zwart
+      - blauw
+      - geel
+      - rood
+      - groen
+    PenState:
+      - aan
+      - uit
+    Object:
+      - sterrenhemel
+      - zusje
+      - broertje
+      - mamma
+      - pappa
+      - maan
+      - zon
+      - ster
+      - huis
+  macros: {}
