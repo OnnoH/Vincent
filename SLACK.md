@@ -4,7 +4,7 @@ This Meetup uses Slack as communication and collaboration platform. The history 
 
 Hence this MarkDown where you'll find (useful) information that passed through the different channels.
 
-Probably a move will be made to [Discord](https://discord.com).
+A move has been made to [Discord](https://discord.gg/cWEnNX6W).
 
 ## Meetups
 
@@ -19,6 +19,7 @@ Past/Planned meetings 2023:
 - June 24<sup>th</sup>
 - July 22<sup>th</sup>
 - August 5<sup>th</sup>
+- September 9<sup>th</sup>
 
 ## GitHub
 
@@ -38,6 +39,13 @@ Past/Planned meetings 2023:
 - [Antratek](https://www.antratek.nl/)
 - [Farnell](https://nl.farnell.com/en-NL)
 - [Reichelt](https://www.reichelt.nl/nl/en)
+- [OpenCircuit](https://opencircuit.shop)
+- [BotLand](https://botland.store)
+- [Electronic Parts Outlet](https://www.electronicparts-outlet.com/en/)
+- [Van Alles En Meer](https://www.vanallesenmeer.nl)
+- [Raspberry Store](https://www.raspberrystore.nl/PrestaShop/nl/)
+- [BudgeTronics](https://www.budgetronics.eu/en/)
+- [Protolectron](https://www.protolectron.nl)
 
 ### Soldering
 

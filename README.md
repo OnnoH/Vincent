@@ -1,6 +1,10 @@
 # Vincent
 
-A community project from the [Arduino/Rasperry Pi Meetup Group](https://www.meetup.com/den-haag-arduino-raspberry-pi/) in The Hague and present on [Slack](https://join.slack.com/t/denhaagarduin-btu2346/shared_invite/zt-1of5vfttc-zs8Z8Dnin0fzIw_Z6SpeCQ) as well.
+A community project from the [Arduino/Rasperry Pi Meetup Group](https://www.meetup.com/den-haag-arduino-raspberry-pi/) in The Hague and present on [Discord](https://discord.gg/cWEnNX6W).
+
+![Arduino/Raspberry Pi Meetup Logo](./images/LogoArduinoRaspberryPiMeetupDenHaag.png)
+
+We used to hang out on [Slack](https://join.slack.com/t/denhaagarduin-btu2346/shared_invite/zt-1of5vfttc-zs8Z8Dnin0fzIw_Z6SpeCQ) as well, but the history is only kept for 90 days. Until the 26<sup>th</sup> you can read the entire history. After that it will slowly fade away. We've kept a record of worthwhile info in this repository [over here](./SLACK.md).
 
 ## Introduction
 
@@ -30,4 +34,4 @@ Some inspirational links were shared on Slack as well.
 ## Robotics
 
 - [The Robotics Backend](https://roboticsbackend.com)
-- [Robot Operating System](http://docs.ros.org) (not secure)
+- [Robot Operating System](https://docs.ros.org)
