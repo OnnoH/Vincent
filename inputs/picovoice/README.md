@@ -31,7 +31,7 @@ Next:
 
 ## Speech-to-Intent
 
-In order to have Vincent react to its own name, a wake word must be learned. PicoVoice has the Rhino SDK for that.
+In order to have Vincent capture intent, words must be learned so it can react to commands. PicoVoice has the Rhino SDK for that.
 
 - https://picovoice.ai/docs/rhino/
 
