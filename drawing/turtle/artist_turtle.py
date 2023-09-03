@@ -25,6 +25,13 @@ def stars():
         t.right(144)
 
 
+def on_connect(client, userdata, flags, rc):
+    if rc == 0:
+        print("connected OK Returned code=", rc)
+    else:
+        print("Bad connection Returned code=", rc)
+
+
 def on_message_direction(client, userdata, msg):
     payload = json.loads(msg.payload)
     direction = payload["direction"]
@@ -52,6 +59,7 @@ def on_message_direction(client, userdata, msg):
 def on_message_object(client, userdata, msg):
     payload = json.loads(msg.payload)
     object = payload["object"]
+    print(object)
     match object:
         case "huis":
             t.forward(100)
@@ -134,6 +142,7 @@ def on_message_penstate(client, userdata, msg):
 
 
 client = mqtt.Client("Vincent_Consumer")
+client.on_connect = on_connect
 client.message_callback_add("Vincent/Movement", on_message_direction)
 client.message_callback_add("Vincent/Object", on_message_object)
 client.message_callback_add("Vincent/Colour", on_message_colour)
