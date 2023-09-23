@@ -9,19 +9,23 @@ import mqtt from "precompiled-mqtt";
 
 const URL = "ws://192.168.1.73:9001";
 const client = mqtt.connect(URL);
+const channel = "1";
 
 client.on("connect", () => {
   console.log("CONNECTED to broker");
 });
 
-function cardButtonClicked(title) {
+function cardButtonClicked(title, channel) {
   if (title === "opnieuw") {
     client.publish(
-      "Vincent/Movement",
+      "Vincent/Movement/" + channel,
       JSON.stringify({ direction: "opnieuw", number: 1 })
     );
   } else {
-    client.publish("Vincent/Object", JSON.stringify({ object: title }));
+    client.publish(
+      "Vincent/Object/" + channel,
+      JSON.stringify({ object: title })
+    );
   }
 }
 
@@ -30,7 +34,9 @@ function CardButton({ content }) {
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" sx={{ maxWidth: 345 }}>
         <CardActionArea
-          onClick={() => cardButtonClicked(content.title.toLowerCase())}
+          onClick={() =>
+            cardButtonClicked(content.title.toLowerCase(), channel)
+          }
         >
           <CardMedia
             component="img"
