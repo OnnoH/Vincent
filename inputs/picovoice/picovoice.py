@@ -26,6 +26,8 @@ rhino_context_path = "".join(
 mqtt_broker_host = configs.get("MQTT_BROKER_HOST").data
 mqtt_broker_port = int(configs.get("MQTT_BROKER_PORT").data)
 
+client_channel = configs.get("MQTT_TOPICS_CHANNEL").data
+
 porcupine = pvporcupine.create(
     access_key=access_key,
     keyword_paths=porcupine_keyword_paths,
@@ -80,7 +82,8 @@ try:
         if is_finalised:
             inference = rhino.get_inference()
             if inference.is_understood:
-                topic = keywords[result] + "/" + inference.intent
+                topic = keywords[result] + "/" + \
+                    inference.intent + "/" + client_channel
                 message = json.dumps(inference.slots)
                 info = mqttClient.publish(
                     topic=topic,
