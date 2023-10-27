@@ -2,6 +2,7 @@ import turtle
 import random
 import json
 import paho.mqtt.client as mqtt
+from svg2turtle import draw_svg
 from jproperties import Properties
 
 configs = Properties()
@@ -10,7 +11,7 @@ with open('turtle.properties', 'rb') as config_file:
 
 mqtt_broker_host = configs.get("MQTT_BROKER_HOST").data
 mqtt_broker_port = int(configs.get("MQTT_BROKER_PORT").data)
-client_channel = configs.get("MQTT_TOPICS_CHANNEL").data
+client_channel = configs.get("MQTT_TOPIC_CHANNEL").data
 
 s = turtle.getscreen()
 t = turtle.Turtle()
@@ -119,6 +120,8 @@ def on_message_object(client, userdata, msg):
                     t.goto(x, y)
                     t.down()
                     stars()
+            case other:
+                draw_svg(t, object)
 
 
 def on_message_colour(client, userdata, msg):
@@ -138,6 +141,15 @@ def on_message_colour(client, userdata, msg):
             case "groen":
                 t.pencolor("green")
                 t.fillcolor("green")
+            case "zwart":
+                t.pencolor("black")
+                t.fillcolor("black")
+            case "roze":
+                t.pencolor("pink")
+                t.fillcolor("pink")
+            case "oranje":
+                t.pencolor("orange")
+                t.fillcolor("orange")
 
 
 def on_message_penstate(client, userdata, msg):
@@ -151,7 +163,7 @@ def on_message_penstate(client, userdata, msg):
                 t.penup()
 
 
-client = mqtt.Client("Vincent_Consumer")
+client = mqtt.Client("Vincent_Consumer+"+client_channel)
 client.on_connect = on_connect
 client.message_callback_add("Vincent/Movement/+", on_message_direction)
 client.message_callback_add("Vincent/Object/+", on_message_object)
