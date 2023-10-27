@@ -1,2 +1,4 @@
 paho-mqtt==1.6.1
 jproperties==2.1.1
+numpy==1.26.1
+svgpathtools==1.6.1
