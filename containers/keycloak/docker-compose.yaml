@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:14.7
+    restart: unless-stopped
+    env_file:
+      - ./database.env
+    ports:
+      - "5100:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d/:ro
+    networks:
+      - custom-keycloak
+  keycloak:
+    container_name: vincent_keycloak
+    build: .
+    image: vincent/keycloak
+    restart: unless-stopped
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      # - KC_DB_SCHEMA=keycloak
+      - KC_DB_USERNAME=Vincent
+      - KC_DB_PASSWORD=VanGogh1890
+      - KC_DB_URL_PORT=5432
+      - KC_DB_URL_HOST=postgres
+      - KC_DB_URL_DATABASE=keycloak
+      - KC_HTTP_ENABLED=true
+      - KC_HOSTNAME_STRICT=false
+      - KC_HOSTNAME_STRICT_HTTPS=false
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - custom-keycloak
+    command:
+      - start
+  pgadmin:
+    container_name: pgadmin_blog
+    image: "dpage/pgadmin4:5.1"
+    env_file:
+      - ./database.env
+    ports:
+      - "5050:80"
+    networks:
+      - custom-keycloak
+volumes:
+  postgres:
+    driver: local
+networks:
+  custom-keycloak:
+    name: custom-keycloak
+    driver: bridge
