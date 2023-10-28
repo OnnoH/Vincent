@@ -13,8 +13,8 @@ mqtt_broker_host = configs.get("MQTT_BROKER_HOST").data
 mqtt_broker_port = int(configs.get("MQTT_BROKER_PORT").data)
 client_channel = configs.get("MQTT_TOPIC_CHANNEL").data
 
-s = turtle.getscreen()
-t = turtle.Turtle()
+s = turtle.Screen()
+t = turtle
 t.shape("turtle")
 t.shapesize(3, 3, 3)
 t.fillcolor("blue")
@@ -68,7 +68,6 @@ def on_message_object(client, userdata, msg):
     if getChannel(msg.topic) == client_channel:
         payload = json.loads(msg.payload)
         object = payload["object"]
-        print(object)
         match object:
             case "huis":
                 t.forward(100)
@@ -121,7 +120,7 @@ def on_message_object(client, userdata, msg):
                     t.down()
                     stars()
             case other:
-                draw_svg(t, object)
+                draw_svg(t, object + "-color")
 
 
 def on_message_colour(client, userdata, msg):
