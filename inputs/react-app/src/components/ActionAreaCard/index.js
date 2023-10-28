@@ -7,15 +7,19 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import mqtt from "precompiled-mqtt";
 
-const URL = "ws://192.168.1.73:9001";
-const client = mqtt.connect(URL);
-const channel = "1";
+const mqttConfig = {
+  url: process.env.REACT_APP_MQTT_BROKER_URL,
+  channel: process.env.REACT_APP_MQTT_CHANNEL,
+};
+const client = mqtt.connect(mqttConfig.url);
+const channel = mqttConfig.channel;
 
 client.on("connect", () => {
   console.log("CONNECTED to broker");
 });
 
 function cardButtonClicked(title, channel) {
+  console.log(title);
   if (title === "opnieuw") {
     client.publish(
       "Vincent/Movement/" + channel,
@@ -34,9 +38,7 @@ function CardButton({ content }) {
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" sx={{ maxWidth: 345 }}>
         <CardActionArea
-          onClick={() =>
-            cardButtonClicked(content.title.toLowerCase(), channel)
-          }
+          onClick={() => cardButtonClicked(content.object, channel)}
         >
           <CardMedia
             component="img"
