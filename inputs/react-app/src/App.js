@@ -1,37 +1,32 @@
 import * as React from "react";
 import ActionAreaCard from "./components/ActionAreaCard";
-import imageMoon from "./assets/images/objects/moon.png";
-import imageStar from "./assets/images/objects/star.png";
-import imageReset from "./assets/images/movement/start-over.png";
+import { Images } from "./components/Images";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { ReactKeycloakProvider } from "@react-keycloak/web";
+// import keycloak from "./Keycloak";
+// import Nav from "./components/Nav";
+// import WelcomePage from "./pages/Homepage";
+// import SecuredPage from "./pages/SecuredPage";
+
 import "./App.css";
 
 function App() {
+  const images = Images();
+  const cardSize = 300;
+
   return (
     <div>
-      <ActionAreaCard
-        content={{
-          title: "Maan",
-          height: 200,
-          image: imageMoon,
-          altText: "Maangezicht met sterren",
-        }}
-      />
-      <ActionAreaCard
-        content={{
-          title: "Ster",
-          height: 200,
-          image: imageStar,
-          altText: "Lachende ster",
-        }}
-      />
-      <ActionAreaCard
-        content={{
-          title: "Opnieuw",
-          height: 200,
-          image: imageReset,
-          altText: "Opnieuw beginnen",
-        }}
-      />
+      {images.map((image) => (
+        <ActionAreaCard
+          content={{
+            title: image.title,
+            object: image.object,
+            height: cardSize,
+            image: image.image,
+            altText: image.altText,
+          }}
+        />
+      ))}
     </div>
   );
 }

@@ -29,8 +29,8 @@ def get_polys(paths):
 
 
 def draw_svg(t, svg_file):
-    svg_file = r'svg/' + svg_file
-# sprite_path = r'D:\Pokemon data\Skarmory_resource\sprites\mystrey_dungeon_explorers_of_time\gif\a{}_{}.gif'
+    svg_file = 'svg/' + svg_file + '.svg'
+    # sprite_path = r'D:\Pokemon data\Skarmory_resource\sprites\mystrey_dungeon_explorers_of_time\gif\a{}_{}.gif'
 
     paths, attrs, svg_attributes = svg2paths(
         svg_file, return_svg_attributes=True)
