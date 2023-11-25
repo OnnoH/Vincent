@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/material';
 import * as Color from '@mui/material/colors';
-import ColourButton from '../ColourButton';
+import ColourButton from '../ColourButtonComponent';
 import { MqttClient } from 'mqtt/*';
 
 const fabsList = [

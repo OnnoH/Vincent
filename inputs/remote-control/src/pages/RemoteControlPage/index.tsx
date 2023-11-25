@@ -1,5 +1,5 @@
-import ColourButtons from '../../components/ColourButtons';
-import CursorButtons from '../../components/CursorButtons';
+import ColourButtons from '../../components/ColourButtonsComponent';
+import CursorButtons from '../../components/CursorButtonsComponent';
 import { Grid } from '@mui/material';
 import { MqttClient } from 'mqtt/*';
 

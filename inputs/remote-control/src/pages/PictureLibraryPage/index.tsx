@@ -1,4 +1,4 @@
-import CardButtons from '../../components/CardButtons';
+import CardButtons from '../../components/CardButtonsComponent';
 import { Grid } from '@mui/material';
 import { MqttClient } from 'mqtt/*';
 

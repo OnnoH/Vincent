@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/material';
 import { brown } from '@mui/material/colors';
-import CursorButton from '../CursorButton';
+import CursorButton from '../CursorButtonComponent';
 import { MqttClient } from 'mqtt/*';
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';

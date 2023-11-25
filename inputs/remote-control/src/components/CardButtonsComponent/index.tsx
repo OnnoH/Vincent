@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import CardButton from "../CardButton";
-import Cards from "../Cards"
+import CardButton from "../CardButtonComponent";
+import Cards from "../../services/CardService"
 import { MqttClient } from 'mqtt/*';
 import { Grid } from '@mui/material';
 
