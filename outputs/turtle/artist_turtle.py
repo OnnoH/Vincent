@@ -21,7 +21,7 @@ t.fillcolor("blue")
 t.pencolor("blue")
 
 
-def stars():
+def star():
     for i in range(5):
         t.fd(10)
         t.right(144)
@@ -30,6 +30,17 @@ def stars():
 def getChannel(topic):
     topicSplit = topic.split("/")
     return topicSplit[-1]
+
+
+def reset():
+    t.clear()
+    t.reset()
+    t.shape("turtle")
+    t.shapesize(3, 3, 3)
+    t.fillcolor("blue")
+    t.pencolor("blue")
+    t.showturtle()
+    s.bgcolor("white")
 
 
 def on_connect(client, userdata, flags, rc):
@@ -54,14 +65,7 @@ def on_message_direction(client, userdata, msg):
             case "terug":
                 t.backward(number)
             case "opnieuw":
-                t.clear()
-                t.reset()
-                t.shape("turtle")
-                t.shapesize(3, 3, 3)
-                t.fillcolor("blue")
-                t.pencolor("blue")
-                t.showturtle()
-                s.bgcolor("white")
+                reset()
 
 
 def on_message_object(client, userdata, msg):
@@ -112,13 +116,15 @@ def on_message_object(client, userdata, msg):
                 t.begin_fill()
                 t.circle(80)
                 t.end_fill()
-                for i in range(100):
+                for i in range(50):
                     x = random.randint(-640, 640)
                     y = random.randint(-330, 330)
                     t.up()
                     t.goto(x, y)
                     t.down()
-                    stars()
+                    star()
+            case "opnieuw":
+                reset()
             case other:
                 draw_svg(t, object + "-color")
 

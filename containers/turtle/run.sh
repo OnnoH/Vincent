@@ -2,7 +2,7 @@
 
 CHANNEL=${1}
 
-BROKER_HOST=192.168.1.73
+BROKER_HOST=host.docker.internal
 BROKER_PORT=1883
 
 DISPLAY=host.docker.internal:0
