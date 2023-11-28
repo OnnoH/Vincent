@@ -13,6 +13,8 @@ RUN python -m pip install -r requirements.txt
 
 # Copy app
 COPY artist_turtle.py /
+COPY svg2turtle.py /
+COPY svg /svg
 
 # Commands to run Tkinter application
 CMD ["artist_turtle.py"]
