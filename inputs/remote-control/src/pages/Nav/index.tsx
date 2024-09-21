@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 function Nav() {
+
+    // const channelList = ["channel1", "channel2", "channel3", "channel4"]
+    const [channel, setChannel] = useState("channel1")
+
+    function selectChannel(changeEvent: any) {
+        setChannel(changeEvent.target.value)
+    }
+
     return (
         <nav style={{ margin: 10 }}>
             <Link to="/" style={{ padding: 5 }}>
@@ -15,40 +24,26 @@ function Nav() {
             <Link to="/about" style={{ padding: 5 }}>
                 About
             </Link>
+            <label>
+                1
+                <input type="radio" name="channel_selector" id="1" value="channel1" checked={channel === "channel1"} onChange={selectChannel} />
+            </label>
+            <label>
+                2
+                <input type="radio" name="channel_selector" id="2" value="channel2" checked={channel === "channel2"} onChange={selectChannel} />
+            </label>
+            <label>
+                3
+                <input type="radio" name="channel_selector" id="3" value="channel3" checked={channel === "channel3"} onChange={selectChannel} />
+            </label>
+            <label>
+                4
+                <input type="radio" name="channel_selector" id="4" value="channel4" checked={channel === "channel4"} onChange={selectChannel} />
+            </label>
+
         </nav>
     )
-    // return (
-    //     <div>
-    //         <div className="top-0 w-full flex flex-wrap">
-    //             <section className="x-auto">
-    //                 <nav className="flex justify-between bg-gray-200 text-blue-800 w-screen">
-    //                     <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-    //                         <h1 className="text-3xl font-bold font-heading">
-    //                             Keycloak React AUTH.
-    //                         </h1>
-    //                         <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-    //                             <li>
-    //                                 <a className="hover:text-blue-800" href="/">
-    //                                     Home
-    //                                 </a>
-    //                             </li>
-    //                             <li>
-    //                                 <a className="hover:text-blue-800" href="/secured">
-    //                                     Secured Page
-    //                                 </a>
-    //                             </li>
-    //                         </ul>
-    //                         <div className="hidden xl:flex items-center space-x-5">
-    //                             <div className="hover:text-gray-200">
-    //                                 <h1>Login</h1>
-    //                             </div>
-    //                         </div>
-    //                     </div>
-    //                 </nav>
-    //             </section>
-    //         </div>
-    //     </div>
-    // );
+
 }
 
 export default Nav;
