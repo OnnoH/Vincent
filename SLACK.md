@@ -46,6 +46,7 @@ Past/Planned meetings 2023:
 - [Raspberry Store](https://www.raspberrystore.nl/PrestaShop/nl/)
 - [BudgeTronics](https://www.budgetronics.eu/en/)
 - [Protolectron](https://www.protolectron.nl)
+- [Radio Twenthe (Physical Shop)](https://www.radiotwenthe.nl/) - Stille Veerkade 11, 2512BE, Den Haag
 
 ### Soldering
 
